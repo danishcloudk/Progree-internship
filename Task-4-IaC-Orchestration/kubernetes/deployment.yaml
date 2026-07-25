@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: progree-app-deployment
+  labels:
+    app: progree-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: progree-app
+  template:
+    metadata:
+      labels:
+        app: progree-app
+    spec:
+      containers:
+      - name: progree-app
+        image: progree-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NODE_ENV
+          value: "production"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        volumeMounts:
+        - name: app-data
+          mountPath: /data
+      volumes:
+      - name: app-data
+        persistentVolumeClaim:
+          claimName: progree-app-pvc
