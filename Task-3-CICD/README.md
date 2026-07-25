@@ -2,6 +2,9 @@
 
 This folder contains the solution for **Task 3**.
 
+**Repository Link:** [https://github.com/danishcloudk/Progree-internship](https://github.com/danishcloudk/Progree-internship)
+**Pipeline Status:** [![CI/CD Pipeline](https://github.com/danishcloudk/Progree-internship/actions/workflows/ci-cd-pipeline.yml/badge.svg)](https://github.com/danishcloudk/Progree-internship/actions)
+
 ## Architecture
 We are utilizing **GitHub Actions** as the CI/CD runner script. The pipeline is defined in `.github/workflows/ci-cd-pipeline.yml`.
 
